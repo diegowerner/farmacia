@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%= locals.title %></title>
+</head>
+<body>
+    <h1>Página de Cadastro de produtos <a href="http://localhost:3000/"><button>Pesquisar</button></a></h1>
+  <form action="/cadastro" method="POST">
+    Código de Barras: <input type="number" name="barras">
+    Nome: <input type="text" name="nome">
+    Quantidade: <input type="text" name="qtd">
+    Nº Caixa: <input type="number" name="caixa">
+    <button>Cadastrar</button>    
+    </form>
+    
+    
+
+    
+  <script src="./assets/js/bundle.js"></script>
+</body>
+</html>

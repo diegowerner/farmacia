@@ -2,17 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">  
 </head>
 <body>
-  <form action="/" method="POST">
-    Código de Barras: <input type="text" name="barras">
-    Nome: <input type="text" name="nome">
-    Quantidade: <input type="text" name="qtd">
-    <button>Enviar</button>
+  <h1>Página de pesquisa <a href="http://localhost:3000/cadastro"><button>Cadastrar</button></a></h1>
+  
+  <form action="/" method="GET">
+    Código/Nome/Caixa: <input type="search" name="pesquisa">    
+    <button type="submit">Pesquisar</button>    
+      <hr>      
+      <form action="/" method="POST">
+      <table>
+        <tr>
+          <Th>Código</Th>
+          <Th>Nome</Th>
+          <Th>Quantidade</Th>
+          <Th>Nº da Caixa</Th>          
+      </tr>
+      <% pesquisaBD.forEach(function(pesquisa) { %>
+        <tr>  
+            <td><%= pesquisa.barras %></td>
+            <td><%= pesquisa.nome %></td>
+            <td><%= pesquisa.qtd %></td>
+            <td><%= pesquisa.caixa %></td>
+          </tr>
+            <% }) %>
+          
+      </table>
     </form>
+      
   <script src="./assets/js/bundle.js"></script>
 </body>
 </html>

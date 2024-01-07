@@ -41,4 +41,3 @@ app.on('pronto', () => app.listen(3000, ()=> {
     console.log('Acessar http://localhost:3000');
     console.log('Servidor tá on na porta 3000');
 }));
-

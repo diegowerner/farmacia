@@ -1,10 +1,18 @@
-exports.paginaInicial = (req, res) => {    
-    res.send(`
-    <form action="/" method="POST">
-    Código de Barras: <input type="text" name="barras">
-    Nome: <input type="text" name="nome">
-    Quantidade: <input type="text" name="qtd">
-    <button>Enviar</button>
-    </form>
-    `);
+const Cadastro = require('../models/CadastroModel');
+
+//GET
+exports.cadastro = (req, res) => {    
+     res.render('cadastro');    
+ }
+//POST
+exports.cadastroFeito = (req, res) => {
+    Cadastro.create({
+        barras: req.body.barras,
+        nome: req.body.nome,
+        caixa: req.body.caixa,
+        qtd: req.body.qtd
+    })
+    
+    res.send('Produto cadastrado com sucesso! <a href="http://localhost:3000/cadastro"><button>Cadastrar novamente</button></a><a href="http://localhost:3000/"><button>Pesquisar</button></a>'); 
+    
 }

@@ -1,16 +1,19 @@
+const mongoose = require('mongoose').MongoClient;
 const express = require('express');
 const route = express.Router();
-const homeController = require('./src/controllers/homeController');
+const pesquisaController = require('./src/controllers/pesquisaController');
 const cadastroController = require('./src/controllers/cadastroController');
 
 
-// Rotas da home
-route.get('/', homeController.paginaInicial);
-route.post('/', homeController.trataPost);
+// Rotas Pesquisa
+route.get('/', pesquisaController.resultado);
+route.post('/', pesquisaController.pesquisar);
 
 // Rotas Cadastros
 
-route.get('/cadastro', cadastroController.paginaInicial);
+route.get('/cadastro', cadastroController.cadastro);
+route.post('/cadastro', cadastroController.cadastroFeito);
+
 
 
 
