@@ -13,6 +13,6 @@ exports.cadastroFeito = (req, res) => {
         qtd: req.body.qtd
     })
     
-    res.send('Produto cadastrado com sucesso! <a href="http://localhost:3000/cadastro"><button>Cadastrar novamente</button></a><a href="http://localhost:3000/"><button>Pesquisar</button></a>'); 
+    res.send('Produto cadastrado com sucesso! <a href="https://estoque-farmacia.onrender.com/cadastro"><button>Cadastrar novamente</button></a><a href="https://estoque-farmacia.onrender.com/"><button>Pesquisar</button></a>'); 
     
 }
