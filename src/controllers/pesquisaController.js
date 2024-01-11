@@ -2,6 +2,7 @@ const mongoose = require('mongoose').MongoClient;
 const Pesquisa = require('../models/CadastroModel');
 
 
+
 //GET
 exports.resultado = async (req, res) => {      
     try {        
@@ -9,9 +10,12 @@ exports.resultado = async (req, res) => {
             { $or: [
             {barras: {$regex: `${req.query.pesquisa}`, $options: 'i'}},
             {nome: {$regex: `${req.query.pesquisa}`, $options: 'i'}},
-            {caixa: {$regex: `${req.query.pesquisa}`, $options: 'i',}},
+            {caixa: {$regex: `${req.query.pesquisa}`, $options: 'i'}}           
+                        
         ]});    
-                  console.log(pesquisaBD); 
+                  console.log(pesquisaBD);
+
+
         return res.render('index', {pesquisaBD});              
     } catch (err) {
         res.status(500).send({error: err.message});

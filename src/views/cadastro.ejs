@@ -4,21 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title><%= locals.title %></title>
+  <link rel="stylesheet2" href="../../frontend/assets/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<body>
-    <h1>Página de Cadastro de produtos <a href="https://estoque-farmacia.onrender.com/"><button>Pesquisar</button></a></h1>
-  <form action="/cadastro" method="POST">
-    Código de Barras: <input type="number" name="barras">
-    Nome: <input type="text" name="nome">
-    Quantidade: <input type="text" name="qtd">
-    Nº Caixa: <input type="number" name="caixa">
-    <button>Cadastrar</button>    
-    </form>
+<body>  
+  
+  <ul class="nav nav-pills nav justify-content-center py-3">
+    <li class="nav-item">
+      <a class="nav-link active" href="http://localhost:3000/cadastro">Cadastro</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="http://localhost:3000/pesquisa">Pesquisar</a>
+    </li>
     
+  </ul>
     
+      <div class="d-flex flex-column mx-auto justify-content-center align-items-center">
+        <form form action="/cadastro" method="POST">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Código de Barras</label>
+          <input type="number" class="form-control" id="formGroupExampleInput" name="barras">
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Nome</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" name="nome">
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Quantidade</label>
+          <input type="number" class="form-control" id="formGroupExampleInput" name="qtd">
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Caixa</label>
+          <input type="number" class="form-control" id="formGroupExampleInput" name="caixa">
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Vencimento</label>
+          <input type="date" class="form-control" id="formGroupExampleInput" name="vencimento">
+        </div>
+        <button type="submit" class="btn btn-success my-2 btn-block" style="width: 250px;">Cadastrar</button>        
+      </form>
+    </div>   
+      
+      
+    </form>  
+  
 
-    
-  <script src="./assets/js/bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>

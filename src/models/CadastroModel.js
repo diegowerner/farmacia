@@ -16,8 +16,12 @@ const CadastroSchema = new mongoose.Schema({
     caixa: { 
         type: String, 
         require: true
+    },
+    vencimento: { 
+        type: Date, 
+        require: true
     }
 });
 
 
-module.exports = mongoose.model('cadastro', CadastroSchema);
+module.exports = mongoose.model('cadastro2', CadastroSchema);

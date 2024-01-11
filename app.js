@@ -1,8 +1,10 @@
 require('dotenv').config();
+const bodyParser = require('body-parser');
 
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+
 
 mongoose.connect(process.env.CONNECTIONSTRING)
 .then( () => {
@@ -26,6 +28,7 @@ app.set('view engine', 'ejs');
 
 app.use(meuMiddleware);
 app.use(routes);
+
 
 
 

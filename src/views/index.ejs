@@ -3,35 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">  
 </head>
 <body>
-  <h1>Página de pesquisa <a href="https://estoque-farmacia.onrender.com/cadastro"><button>Cadastrar</button></a></h1>
-  
-  <form action="/" method="GET">
-    Código/Nome/Caixa: <input type="search" name="pesquisa">    
-    <button type="submit">Pesquisar</button>    
-      <hr>      
-      <form action="/" method="POST">
-      <table>
-        <tr>
-          <Th>Código</Th>
-          <Th>Nome</Th>
-          <Th>Quantidade</Th>
-          <Th>Nº da Caixa</Th>          
-      </tr>
-      <% pesquisaBD.forEach(function(pesquisa) { %>
-        <tr>  
+  <ul class="nav nav-pills nav justify-content-center py-3">
+    <li class="nav-item">
+      <a class="nav-link" href="http://localhost:3000/cadastro">Cadastro</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="http://localhost:3000/pesquisa">Pesquisar</a>
+    </li>
+    
+  </ul>
+  <form action="/pesquisa" method="GET">
+    
+    <div class="input-group mt-4 ">
+      <div class="form-outline" data-mdb-input-init>
+        <input type="search" id="form1" class="form-control" name="pesquisa" style="margin-left: 20px; width: 400px;"/>        
+    </div>
+    <button type="submit" class="btn btn-primary" data-mdb-ripple-init>Pesquisar
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+  </form>       
+      <hr>  
+  <form action="/pesquisa" method="POST">  
+
+   
+    <table class="table">
+      <thead class="thead-light">
+             <tr>
+            <th scope="col">#</th>
+            <th scope="col">Código</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Nº da Caixa</th>
+            <th scope="col">Vencimento</th>
+          </tr>
+        </thead>      
+      <% var i=1; pesquisaBD.forEach(function(pesquisa, index) { %>
+        <tbody>
+       <tr>
+            <th scope="row"><%= i %></th>
             <td><%= pesquisa.barras %></td>
             <td><%= pesquisa.nome %></td>
             <td><%= pesquisa.qtd %></td>
-            <td><%= pesquisa.caixa %></td>
-          </tr>
-            <% }) %>
-          
+            <td><%= pesquisa.caixa %></td>            
+            <td><%= new Date(pesquisa.vencimento).toLocaleString([], {dateStyle: 'short'}) %>
+            
+            </td>            
+          </tr>          
+          <% i++}) %>
       </table>
+      </tbody>
     </form>
-      
-  <script src="./assets/js/bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>      
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
