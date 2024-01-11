@@ -11,7 +11,7 @@ mongoose.connect(process.env.CONNECTIONSTRING)
     console.log('Conectado no BD');
     app.emit('pronto');
 })
-.catch (e => console.log(e));
+.catch (e => console.log(e)); 
 
 
 
