@@ -40,7 +40,8 @@ app.use(routes);
 //http://meusite.com/contato <- GET '/contato' > entra nessa página
 
 
-app.on('pronto', () => app.listen(PORT, 3000, ()=> {
-    console.log('Acessar http://localhost:3000');
-    
-}));
+app.on('pronto', () => {
+    app.listen(3000, () => {
+    console.log('Acessar http://localhost:3000/pesquisa');    
+    });
+});
