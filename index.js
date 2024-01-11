@@ -6,7 +6,7 @@ const app = express();
 const mongoose = require('mongoose');
 
 
-mongoose.connect(process.env.CONNECTIONSTRING)
+mongoose.connect(process.env.PORT || 3000)
 .then( () => {
     console.log('Conectado no BD');
     app.emit('pronto');
@@ -41,7 +41,7 @@ app.use(routes);
 
 
 app.on('pronto', () => {
-    app.listen(3000, () => {
+    app.listen(PORT, () => {
     console.log('Acessar http://localhost:3000/pesquisa');    
     });
 });
