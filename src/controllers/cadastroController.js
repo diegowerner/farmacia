@@ -14,6 +14,6 @@ exports.cadastroFeito = (req, res) => {
         vencimento: req.body.vencimento
     })
     
-    res.send('Produto cadastrado com sucesso! <a href="http://localhost:3000/cadastro"><button>Cadastrar novamente</button></a><a href="http://localhost:3000/pesquisa"><button>Pesquisar</button></a>'); 
+    res.send('Produto cadastrado com sucesso! <a href="http://estoque-farmacia.onrender.com/cadastro"><button>Cadastrar novamente</button></a><a href="http://estoque-farmacia.onrender.com/"><button>Pesquisar</button></a>'); 
     
 }

@@ -1,6 +1,6 @@
 require('dotenv').config();
 const bodyParser = require('body-parser');
-
+const serverless = require('serverless-http')
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
