@@ -6,7 +6,7 @@ const app = express();
 const mongoose = require('mongoose');
 
 
-mongoose.connect(process.env.PORT)
+mongoose.connect(process.env.PORT || 3000)
 .then( () => {
     console.log('Conectado no BD');
     app.emit('pronto');
