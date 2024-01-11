@@ -17,11 +17,11 @@
   },
   "name": "udemy",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack -w",
-    "start": "nodemon app.js --ignore public --ignore frontend"
+    "start": "node index.js --ignore public --ignore frontend"
   },
   "keywords": [],
   "author": "",
