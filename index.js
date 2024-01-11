@@ -42,6 +42,6 @@ app.use(routes);
 
 app.on('pronto', () => {
     app.listen(CONNECTIONSTRING, () => {
-    console.log('Acessar http://localhost:3000/pesquisa');    
+    console.log('Conectado');    
     });
 });
