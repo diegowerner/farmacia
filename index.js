@@ -1,17 +1,23 @@
 require('dotenv').config();
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
 
+const PORT = process.env.PORT || 3000;
 
-mongoose.connect(process.env.CONNECTIONSTRING)
-.then( () => {
-    console.log('Conectado no BD');
-    app.emit('pronto');
-})
-.catch (e => console.log(e)); 
+mongoose.set('strictQuery', false);
+const connectDB = async () => {
+    try {
+        const conn = await mongoose.connect(process.env.CONNECTIONSTRING);
+        console.log(`Conectado no DB: ${conn.connection.host}`);            
+        } catch (error) {        
+            console.log(error); 
+            process.exit(1);
+        }
+    }
+
 
 
 
@@ -40,8 +46,14 @@ app.use(routes);
 //http://meusite.com/contato <- GET '/contato' > entra nessa página
 
 
-app.on('pronto', () => {
-    app.listen(3000, () => {
-    console.log(`Acessar http://localhost:3000/cadastro`);    
-    });
-});
+connectDB().then(() => {
+    app.listen(PORT, "0.0.0.0", () => {
+        console.log(`Conectado na porta ${PORT}`);
+    })
+})
+
+// app.on('pronto', () => {
+//     app.listen(3000, () => {
+//     console.log(`Acessar http://localhost:3000/cadastro`);    
+//     });
+// });
