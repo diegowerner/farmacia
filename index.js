@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 mongoose.set('strictQuery', false);
 const connectDB = async () => {
@@ -47,7 +47,7 @@ app.use(routes);
 
 
 connectDB().then(() => {
-    app.listen(port, "0.0.0.0", () => {
+    app.listen(PORT, "0.0.0.0", () => {
         console.log(`Conectado na porta ${PORT}`);
     })
 })
