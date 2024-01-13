@@ -49,6 +49,7 @@ app.use(routes);
 connectDB().then(() => {
     app.listen(PORT, "0.0.0.0", function ()  {
         console.log(`Conectado na porta ${PORT}, Acessar https://estoque-farmacia.cyclic.app/pesquisa`);
+
     })
 })
 
