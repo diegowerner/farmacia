@@ -24,40 +24,33 @@
         <form action="/cadastro" method="POST">
         <div class="form-group">
           <label for="formGroupExampleInput">Código de Barras</label>
-          <input type="number" class="form-control" id="formGroupExampleInput" name="barras" value="<%= edit ? pesquisa.barras : '' %>">
+          <input type="number" class="form-control" id="formGroupExampleInput" name="barras" >
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput">Nome</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" name="nome" value="<%= edit ? pesquisa.nome : '' %>">
+          <input type="text" class="form-control" id="formGroupExampleInput" name="nome" >
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput">Quantidade</label>
-          <input type="number" class="form-control" id="formGroupExampleInput" name="qtd" value="<%= edit ? pesquisa.qtd : ''%>">
+          <input type="number" class="form-control" id="formGroupExampleInput" name="qtd">
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput">Caixa</label>
-          <input type="number" class="form-control" id="formGroupExampleInput" name="caixa" value="<%= edit ? pesquisa.caixa : '' %>">
+          <input type="number" class="form-control" id="formGroupExampleInput" name="caixa" >
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput">Vencimento</label>
-          <input type="date" class="form-control" id="formGroupExampleInput" name="vencimento" value="<%= edit ? pesquisa.vencimento : '' %>">
+          <input type="date" class="form-control" id="formGroupExampleInput" name="vencimento" >
         </div>
-        <button type="submit" class="btn btn-success my-2 btn-block" style="width: 250px;"><%= edit ? 'Editar' : 'Cadastrar' %></button>        
-        <div class="sucesso"></div>
-      </div>  
+        <button type="submit" class="btn btn-success my-2 btn-block" style="width: 250px;">Cadastrar</button>        
+              
       </form>
        
       
       
      
   
-    <script> 
-    const button = document.getElementById('enviar');
-      button.addEventListener('click', function(e) {
-        e.preventDefault();
-        alert('Cadastrado com sucesso');        
-
-      });</script>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

@@ -6,13 +6,8 @@ const passport = require('passport');
 
 
 //GET
-exports.cadastroGet = (req, res, next) => {    
-    const viewsData = {
-        edit: false,
-        pageTitle: 'Adicionar produto'
-    };
-    
-    res.render('cadastro', viewsData);
+exports.cadastroGet = (req, res) => {        
+    res.render('cadastro')
  }
 
 //POST
@@ -23,7 +18,8 @@ exports.cadastroPost = (req, res) => {
         caixa: req.body.caixa,
         qtd: req.body.qtd,
         vencimento: req.body.vencimento
-    })       
+    })  
+    res.redirect('/cadastro')     
 }
 
 //DELETAR
