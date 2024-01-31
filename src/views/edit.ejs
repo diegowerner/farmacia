@@ -10,17 +10,17 @@
 <body>    
   <ul class="nav nav-pills nav justify-content-center py-3">
     <li class="nav-item">
-      <a class="nav-link active" href="http://localhost:3000/cadastro">Cadastro</a>
+      <a class="nav-link active" href="https://estoque-farmacia.cyclic.app/cadastro">Cadastro</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="http://localhost:3000/pesquisa">Pesquisar</a>
+      <a class="nav-link" href="https://estoque-farmacia.cyclic.app/pesquisa">Pesquisar</a>
     </li>
     
   </ul>
     
       <div class="d-flex flex-column mx-auto justify-content-center align-items-center">
                 
-        <form action="/edit/<%- pesquisa._id%>" method="POST">
+        <form action="https://estoque-farmacia.cyclic.app/edit/<%- pesquisa._id%>" method="POST">
         <div class="form-group">
           <label for="formGroupExampleInput">Código de Barras</label>
           <input type="number" class="form-control" id="formGroupExampleInput" name="barras" value="<%= pesquisa.barras %>">
