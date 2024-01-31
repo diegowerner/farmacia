@@ -1,9 +1,17 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
+const session = require('express-session');
+const passport = require('passport');
+const passportLocalMongoose = require('passport-local-mongoose');
 const bodyParser = require('body-parser');
-
 const express = require('express');
+const cookieParser = require('cookie-parser');
+
+
+const routes = require('./routes');
+
 const app = express();
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -12,28 +20,37 @@ const connectDB = async () => {
     try {
         const conn = await mongoose.connect(process.env.CONNECTIONSTRING);
         console.log(`Conectado no DB: ${conn.connection.host}`);            
-        } catch (error) {        
-            console.log(error); 
-            process.exit(1);
-        }
+    } catch (error) {        
+        console.log(error); 
+        process.exit(1);
     }
+}
 
 
 
-
-const routes = require('./routes');
 const path = require('path');
-const meuMiddleware = require('./src/middlewares/middleware');
+
+const requireAuth = require('./src/middlewares/middleware');
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
+//middleware
+app.use(express.static('./public'));
+app.use(express.json());
+app.use(cookieParser());
+
 
 app.use(express.urlencoded({extended: true}));
-
-app.use(express.static('./public'));
-
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
-app.use(meuMiddleware);
+
+
 app.use(routes);
+
+app.use(requireAuth);
 
 
 
@@ -48,7 +65,7 @@ app.use(routes);
 
 connectDB().then(() => {
     app.listen(PORT, "0.0.0.0", function ()  {
-        console.log(`Conectado na porta ${PORT}, Acessar https://estoque-farmacia.cyclic.app/pesquisa`);
+        console.log(`Conectado na porta ${PORT}, Acessar http://localhost:3000/`);
 
     })
 })

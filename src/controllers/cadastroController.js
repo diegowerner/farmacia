@@ -1,19 +1,52 @@
+const { REPLServer } = require('repl');
 const Cadastro = require('../models/CadastroModel');
+const mongoose = require('mongoose').MongoClient;
+const passport = require('passport');
+
+
 
 //GET
-exports.cadastro = (req, res) => {    
-     res.render('cadastro');    
+exports.cadastroGet = (req, res, next) => {    
+    const viewsData = {
+        edit: false,
+        pageTitle: 'Adicionar produto'
+    };
+    
+    res.render('cadastro', viewsData);
  }
+
 //POST
-exports.cadastroFeito = (req, res) => {
+exports.cadastroPost = (req, res) => {
     Cadastro.create({
         barras: req.body.barras,
         nome: req.body.nome,
         caixa: req.body.caixa,
         qtd: req.body.qtd,
         vencimento: req.body.vencimento
-    })
-    
-    res.send('Produto cadastrado com sucesso! <a href="https://estoque-farmacia.cyclic.app/cadastro"><button>Cadastrar novamente</button></a><a href="https://estoque-farmacia.cyclic.app/pesquisa"><button>Pesquisar</button></a>'); 
-    
+    })       
 }
+
+//DELETAR
+exports.deletar = async (req, res, next) => {
+    Cadastro.findByIdAndDelete({_id: req.params.id})
+    .then(
+        res.redirect('/pesquisa')
+    );        
+}
+
+//EDITAR
+exports.getEditProductPage = (req, res) => {
+    
+    Cadastro.findOneAndUpdate({_id:req.params.id}, req.body, {new: true})
+    .then(docs => {
+        res.render('edit', {pesquisa: docs});        
+    })   
+};
+
+exports.postEditProductPage = (req, res) => {
+
+    Cadastro.findOneAndUpdate({_id:req.params.id}, req.body)
+    .then(docs => {
+        res.redirect('/pesquisa');        
+    })   
+};
