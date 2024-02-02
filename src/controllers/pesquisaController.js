@@ -11,8 +11,7 @@ exports.pesquisarGet = async (req, res) => {
             {barras: {$regex: `${req.query.pesquisa}`, $options: 'i'}},
             {nome: {$regex: `${req.query.pesquisa}`, $options: 'i'}},
             {caixa: {$regex: `${req.query.pesquisa}`, $options: 'i'}}           
-                        
-        ]});                
+        ]}).sort({"vencimento":1});                
         return res.render('pesquisar', {pesquisaBD});              
     } catch (err) {
         res.status(500).send({error: err.message});
