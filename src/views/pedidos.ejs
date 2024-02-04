@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet2" href="../../frontend/assets/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>  
+
+  <ul class="nav nav-pills nav justify-content-center py-3">
+    <li class="nav-item">
+      <a class="nav-link " href="http://estoque-farmacia.cyclic.app/cadastro">Cadastro</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="http://estoque-farmacia.cyclic.app/pesquisa">Pesquisar</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="http://estoque-farmacia.cyclic.app/pedido">Fazer pedido</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="http://estoque-farmacia.cyclic.app/pedidos">Pedidos</a>
+    </li>
+  </ul>
+
+      <div class="d-flex flex-column mx-auto justify-content-center align-items-center">
+      
+        
+            <hr>  
+        <form action="/pedidos" method="POST">  
+      
+         
+          <table class="table">
+            <thead class="thead-light">
+                   <tr>
+                  <th scope="col">#</th>                  
+                  <th scope="col">Nome</th>
+                  <th scope="col">Quem pediu</th>
+                  <th scope="col">Número da pessoa</th>                 
+                  <th scope="col">Quando pediu</th>                 
+                </tr>
+              </thead>      
+            <% var i=1; pedidoBD.forEach(function(pedidos, index) { %>        
+              <tbody>
+             <tr>
+                  <th scope="row"><%= i %></th>                  
+                  <td><%= pedidos.nome %></td>
+                  <td><%= pedidos.quem_pediu %></td>                             
+                  <td><%= pedidos.numero %></td>                             
+                  <td><% const data = new Date(pedidos.quando_pediu); %>
+                    <% data.setDate(data.getDate()+ 1) %> 
+                    <% const options = { year: 'numeric', month: 'numeric', day: 'numeric'}; %>
+                    <%= data.toLocaleDateString('pt-br', options); %>
+                  <td><a class="text-danger" href="http://estoque-farmacia.cyclic.app/deletarPedido/<%= pedidos._id %>">Excluir</a></td>            
+                </tr>          
+                <% i++}) %>
+            </table>
+            </tbody>
+          </form>
+     
+  
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

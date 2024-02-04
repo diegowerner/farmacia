@@ -24,7 +24,7 @@ exports.cadastroPost = (req, res) => {
 
 //DELETAR
 exports.deletar = async (req, res, next) => {
-    Cadastro.findByIdAndDelete({_id: req.params.id})
+    await Cadastro.findByIdAndDelete({_id: req.params.id})
     .then(
         res.redirect('/pesquisa')
     );        

@@ -7,6 +7,7 @@ const requireAuth = require('./src/middlewares/middleware');
 const authController = require('./src/controllers/authController');
 const cadastroController = require('./src/controllers/cadastroController');
 const pesquisaController = require('./src/controllers/pesquisaController');
+const pedidoController = require('./src/controllers/pedidoController');
 
 
 //Cookies
@@ -51,7 +52,14 @@ route.post('/edit/:id', requireAuth, cadastroController.postEditProductPage);
 //Delete
 route.get('/deletar/:id', requireAuth, cadastroController.deletar);
 
+//Pedido
+route.get('/pedido', requireAuth, pedidoController.pedidoGet);
+route.post('/pedido', requireAuth, pedidoController.pedidoPost);
 
+route.get('/pedidos', requireAuth, pedidoController.pedidoPesquisaGet);
+route.post('/pedidos', requireAuth, pedidoController.pedidoPesquisaPost);
+
+route.get('/deletarPedido/:id', requireAuth, pedidoController.deletarPedido);
 
 
 module.exports = route;

@@ -11,48 +11,43 @@
 
   <ul class="nav nav-pills nav justify-content-center py-3">
     <li class="nav-item">
-      <a class="nav-link active" href="http://estoque-farmacia.cyclic.app/cadastro">Cadastro</a>
+      <a class="nav-link" href="http://estoque-farmacia.cyclic.app/cadastro">Cadastro</a>
     </li>
     <li class="nav-item">
       <a class="nav-link " href="http://estoque-farmacia.cyclic.app/pesquisa">Pesquisar</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link " href="http://estoque-farmacia.cyclic.app/pedido">Fazer pedido</a>
+      <a class="nav-link active" href="http://estoque-farmacia.cyclic.app/pedido">Fazer pedido</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="http://estoque-farmacia.cyclic.app/pedidos">Pedidos</a>
     </li>
   </ul>
-    
-      <div class="d-flex flex-column mx-auto justify-content-center align-items-center">
-                
-        <form action="/cadastro" method="POST">
+  <div class="d-flex flex-column mx-auto justify-content-center align-items-center">
+
+
+
+
+  <form action="/pedido" method="POST">
         
-        <div class="form-group">
-          <label for="formGroupExampleInput">Nome</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" name="nome" >
-        </div>
-        <div class="form-group">
-          <label for="formGroupExampleInput">Quantidade</label>
-          <input type="number" class="form-control" id="formGroupExampleInput" name="qtd">
-        </div>
-        <div class="form-group">
-          <label for="formGroupExampleInput">Caixa</label>
-          <input type="number" class="form-control" id="formGroupExampleInput" name="caixa" >
-        </div>
-        <div class="form-group">
-          <label for="formGroupExampleInput">Vencimento</label>
-          <input type="date" class="form-control" id="formGroupExampleInput" name="vencimento" >
-        </div>
-        <div class="form-group">
-          <label for="formGroupExampleInput">Código de Barras</label>
-          <input type="number" class="form-control" id="formGroupExampleInput" name="barras" >
-        </div>
-        <button type="submit" class="btn btn-success my-2 btn-block" style="width: 250px;">Cadastrar</button>        
-              
-      </form>
-       
-      
+    <div class="form-group">
+      <label for="formGroupExampleInput">Nome</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" name="nome" >
+    </div>        
+    <div class="form-group">
+      <label for="formGroupExampleInput">Quem pediu</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" name="quem_pediu" >
+    </div>        
+    <div class="form-group">
+      <label for="formGroupExampleInput">Quando foi pedido</label>
+      <input type="date" class="form-control" id="formGroupExampleInput" name="quando_pediu" >
+    </div>        
+    <div class="form-group">
+      <label for="formGroupExampleInput">Número da pessoa</label>
+      <input type="number" class="form-control" id="formGroupExampleInput" name="numero" >
+    </div>        
+    <button type="submit" class="btn btn-success my-2 btn-block" style="width: 250px;">Cadastrar</button>    
+  </form>
       
      
   
