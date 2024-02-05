@@ -37,6 +37,7 @@
                   <th scope="col">#</th>                  
                   <th scope="col">Nome</th>
                   <th scope="col">Quem pediu</th>
+                  <th scope="col">Quantidade</th>                 
                   <th scope="col">Número da pessoa</th>                 
                   <th scope="col">Quando pediu</th>                 
                 </tr>
@@ -47,6 +48,7 @@
                   <th scope="row"><%= i %></th>                  
                   <td><%= pedidos.nome %></td>
                   <td><%= pedidos.quem_pediu %></td>                             
+                  <td><%= pedidos.qtd %></td>                             
                   <td><%= pedidos.numero %></td>                             
                   <td><% const data = new Date(pedidos.quando_pediu); %>
                     <% data.setDate(data.getDate()+ 1) %> 

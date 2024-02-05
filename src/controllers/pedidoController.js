@@ -12,7 +12,8 @@ exports.pedidoPost = (req, res) => {
         nome: req.body.nome,        
         quem_pediu: req.body.quem_pediu,        
         quando_pediu: req.body.quando_pediu,
-        numero: req.body.numero
+        qtd: req.body.qtd,
+        numero: req.body.numero,
     })  
     res.redirect('/pedido')     
 }

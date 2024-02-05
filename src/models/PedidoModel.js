@@ -16,7 +16,11 @@ const PedidoSchema = new mongoose.Schema({
     numero: {
         type: Number,
         require: true
-    }
+    },
+    qtd: {
+        type: Number,
+        require: true
+    },
 });
 
 
