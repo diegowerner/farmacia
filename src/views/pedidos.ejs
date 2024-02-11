@@ -65,7 +65,7 @@
                     <td><%= pedidos.qtd %></td>                             
                     <td><%= pedidos.numero %></td>                             
                     <td><% const data = new Date(pedidos.quando_pediu); %>
-                      <% data.setDate(data.getDate()+ 1) %> 
+                      <% data.setDate(data.getDate()) %> 
                       <% const options = { year: 'numeric', month: 'numeric', day: 'numeric'}; %>
                       <%= data.toLocaleDateString('pt-br', options); %></td> 
                     <td><a href="https://estoque-farmacia.cyclic.app/editarPedido/<%= pedidos._id %>">Editar</a></td>
