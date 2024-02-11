@@ -68,8 +68,8 @@
                       <% data.setDate(data.getDate()+ 1) %> 
                       <% const options = { year: 'numeric', month: 'numeric', day: 'numeric'}; %>
                       <%= data.toLocaleDateString('pt-br', options); %></td> 
-                    <td><a href="http://localhost:3000/editarPedido/<%= pedidos._id %>">Editar</a></td>
-                    <td><a class="text-danger" href="http://localhost:3000/deletarPedido/<%= pedidos._id %>">Excluir</a></td>
+                    <td><a href="https://estoque-farmacia.cyclic.app/editarPedido/<%= pedidos._id %>">Editar</a></td>
+                    <td><a class="text-danger" href="https://estoque-farmacia.cyclic.app/deletarPedido/<%= pedidos._id %>">Excluir</a></td>
                                 
             </tr> 
                         
