@@ -61,5 +61,7 @@ route.post('/pedidos', requireAuth, pedidoController.pedidoPesquisaPost);
 
 route.get('/deletarPedido/:id', requireAuth, pedidoController.deletarPedido);
 
+route.get('/editarPedido/:id', requireAuth, pedidoController.getEditarPedido);
+route.post('/editarPedido/:id', requireAuth, pedidoController.postEditarPedido);
 
 module.exports = route;

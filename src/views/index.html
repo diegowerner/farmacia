@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <style>.highlight{
+    background: #ddd;
+  }
+  table tr td{
+    border: solid thin #ccc;
+  }</style>
+ <script
+ src="https://code.jquery.com/jquery-3.7.1.min.js"
+ integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+ crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <td><input type="checkbox" ></td>
+      <td>India</td>
+      <td>New Delhi</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" ></td>
+      <td>Australia</td>
+      <td>Canberra</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" ></td>
+      <td>Canada</td>
+      <td>Ottawa</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" ></td>
+      <td>London</td>
+      <td>UK</td>
+    </tr>
+  </table>
+
+  <script>
+    $(function() {
+  $('td:first-child input').change(function() {
+    $(this).closest('tr').toggleClass("highlight", this.checked);
+  });
+});
+  </script>
+</body>
+</html>

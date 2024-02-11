@@ -14,6 +14,7 @@ exports.pedidoPost = (req, res) => {
         quando_pediu: req.body.quando_pediu,
         qtd: req.body.qtd,
         numero: req.body.numero,
+        reposicao: req.body.reposicao
     })  
     res.redirect('/pedido')     
 }
@@ -44,3 +45,20 @@ exports.deletarPedido = async (req, res, next) => {
         res.redirect('/pedidos')
     );        
 }
+
+//EDITAR
+exports.getEditarPedido = (req, res) => {
+    
+    Pedido.findOneAndUpdate({_id:req.params.id}, req.body, {new: true})
+    .then(docs => {
+        res.render('editPedido', {pedidos: docs});        
+    })   
+};
+
+exports.postEditarPedido = (req, res) => {
+
+    Pedido.findOneAndUpdate({_id:req.params.id}, req.body)
+    .then(docs => {
+        res.redirect('/pedidos');        
+    })   
+};

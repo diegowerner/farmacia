@@ -9,6 +9,10 @@ const PedidoSchema = new mongoose.Schema({
         type: String, 
         require: true
     },
+     reposicao: { 
+        type: String, 
+        require: true
+    },
     quando_pediu: { 
         type: Date, 
         require: true
