@@ -14,15 +14,18 @@ exports.pedidoPost = (req, res) => {
         quando_pediu: req.body.quando_pediu,
         qtd: req.body.qtd,
         numero: req.body.numero,
-        reposicao: req.body.reposicao
+        reposicao: req.body.reposicao,
+        barras: req.body.barras
     })  
     res.redirect('/pedido')     
 }
 
+
 //GET PESQUISAR PEDIDO
 exports.pedidoPesquisaGet = async (req, res) => {              
-        try {const pedidoBD = await Pedido.find({});                
-        return res.render('pedidos', {pedidoBD}); 
+        try {
+            const pedidoBD = await Pedido.find({});                
+            return res.render('pedidos', {pedidoBD}); 
         } catch (err){
             res.status(500).send({error: err.message});
         }             

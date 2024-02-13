@@ -25,6 +25,10 @@ const PedidoSchema = new mongoose.Schema({
         type: Number,
         require: true
     },
+    barras: {
+        type: Number,
+        require: true
+    },
 });
 
 
