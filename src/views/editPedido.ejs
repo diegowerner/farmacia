@@ -32,16 +32,17 @@
         
     <div class="form-group">
       <label for="formGroupExampleInput">Produto</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" name="nome" value="<%= pedidos.nome %>" >
-    </div>        
+      <input type="text" class="form-control" id="formGroupExampleInput" name="nome" value="<%= pedidos.nome %>">
+    </div>
+    <div class="form-group">
+      <input type="checkbox" name="reposicao" id="myCheck" value="<%= pedidos.reposicao %>">
+      <label for="formGroupExampleInput" id="text">FALTA</label>  
+    </div>
+            
     <div class="form-group">
       <label for="formGroupExampleInput">Quem pediu</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" name="quem_pediu" value="<%= pedidos.quem_pediu %> <%= pedidos.reposicao %>">
-    </div>        
-    <div class="form-group">
-      <label for="formGroupExampleInput">Quando foi pedido</label>
-      <input type="date" class="form-control" id="formGroupExampleInput" name="quando_pediu" value="<%= pedidos.quando_pediu %>">
-    </div>        
+      <input type="text" class="form-control" id="formGroupExampleInput" name="quem_pediu" value="<%= pedidos.quem_pediu %> " >
+    </div> 
     <div class="form-group">
       <label for="formGroupExampleInput">Quantidade</label>
       <input type="number" class="form-control" id="formGroupExampleInput" name="qtd" value="<%= pedidos.qtd %>">

@@ -8,14 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">  
-   <style>
-.table-row-selected{  
-  text-decoration: line-through;
   
-      
-}
-
-   </style>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>  
@@ -36,16 +29,15 @@
   </ul>
 
       <div class="d-flex flex-column mx-auto justify-content-center align-items-center">
-      
-        
+              
             <hr>  
-        <form action="/pedidos" method="POST">  
+        <form action="/pedidos" method="POST" id="myForm">  
       
          
           <table class="table">
             <thead class="thead-light">
                    <tr>
-                  <th scope="col"><input type="checkbox" ></th>                  
+                  <th scope="col"></th>                  
                   <th scope="col">#</th>                  
                   <th scope="col">Produto</th>
                   <th scope="col">Código de Barras</th>
@@ -55,10 +47,10 @@
                   <th scope="col">Quando Pediu</th>                 
                 </tr>
               </thead>     
-              <% pedidoBD.forEach(function(pedidos, i) { %>     
+              <% pedidoBD.forEach(function(pedidos, i) { %>                                        
               <tbody>        
               <tr> <div class="aqui">
-              <th><input type="checkbox" id="lista" onchange="closest('tr').classList.toggle('table-row-selected')"></th>                
+              <td><input type="checkbox" class="save-cb-state" name="mycheckbox<%=i%>" ></td>                 
               <td><%= i++ %></td>            
                     <td><%= pedidos.nome.toUpperCase() %></td>
                     <td><%= pedidos.barras %></td>
@@ -69,7 +61,7 @@
                       <% data.setDate(data.getDate()) %> 
                       <% const options = { year: 'numeric', month: 'numeric', day: 'numeric'}; %>
                       <%= data.toLocaleDateString('pt-br', options); %></td> </div> 
-                    <th><a class="oi" href="https://estoque-farmacia.cyclic.app/editarPedido/<%= pedidos._id %>">Editar</a></th>
+                    <th><a class="oi" href="http://localhost:3000/editarPedido/<%= pedidos._id %>">Editar</a></th>
                     <th><a class="text-danger oi" href="https://estoque-farmacia.cyclic.app/deletarPedido/<%= pedidos._id %>">Excluir</a></th>
                                 
             </tr> 
@@ -78,8 +70,55 @@
             </table>
             </tbody>
                     </form>
-                    
-        
+                <script src="http://code.jquery.com/jquery.js"></script>  
+
+                 
+        <script>
+          
+// Avoid scoping issues by encapsulating code inside anonymous function
+(function() {
+  // variable to store our current state
+  var cbstate;
+  
+  // bind to the onload event
+  window.addEventListener('load', function() {
+    // Get the current state from localstorage
+    // State is stored as a JSON string
+    cbstate = JSON.parse(localStorage['CBState'] || '{}');
+  
+    // Loop through state array and restore checked 
+    // state for matching elements
+    for(var i in cbstate) {
+      var el = document.querySelector('input[name="' + i + '"]');
+      if (el) el.checked = true;
+    }
+  
+    // Get all checkboxes that you want to monitor state for
+    var cb = document.getElementsByClassName('save-cb-state');
+  
+    // Loop through results and ...
+    for(var i = 0; i < cb.length; i++) {
+  
+      //bind click event handler
+      cb[i].addEventListener('click', function(evt) {
+        // If checkboxe is checked then save to state
+        if (this.checked) {
+          cbstate[this.name] = true;
+        }
+    
+    // Else remove from state
+        else if (cbstate[this.name]) {
+          delete cbstate[this.name];
+        }
+    
+    // Persist state
+        localStorage.CBState = JSON.stringify(cbstate);
+      });
+    }
+  });
+})();
+
+        </script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
