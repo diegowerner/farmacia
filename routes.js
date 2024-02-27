@@ -53,6 +53,7 @@ route.post('/edit/:id', requireAuth, cadastroController.postEditProductPage);
 route.get('/deletar/:id', requireAuth, cadastroController.deletar);
 
 //Pedido
+
 route.get('/pedido', requireAuth, pedidoController.pedidoGet);
 route.post('/pedido', requireAuth, pedidoController.pedidoPost);
 
