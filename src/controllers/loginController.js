@@ -25,7 +25,7 @@ req.login(user, function(err, user){
     console.log(err)
   } else {
     passport.authenticate('local')(req, res, () => {
-      res.render('cadastro');
+      res.render('opcoes');
     })
   }
 }) 
