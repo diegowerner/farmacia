@@ -30,7 +30,7 @@ route.get('/read-cookies', (req, res )=> {
 
 //Rotas Login
 route.get('/', authController.loginGet);
-route.post('/', authController.loginPost);
+route.post('/', authController.loginPost);  
 
 //Rota Cadastro Usuario
 route.get('/cadastraruser', authController.cadastrarUsuarioGet);
@@ -53,16 +53,16 @@ route.get('/deletarPedido/:id', requireAuth, faltaController.deletarFalta);
 
 
 //Rota Opcoes
-route.post('/opcoes', authController.opcoesPost);
-route.get('/opcoes', authController.opcoesGet);
+route.post('/opcoes', requireAuth, authController.opcoesPost);
+route.get('/opcoes', requireAuth, authController.opcoesGet);
 
 //Rota Cadastro Itens
 route.get('/cadastro', requireAuth, cadastroController.cadastroGet);
-route.post('/cadastro', cadastroController.cadastroPost);
+route.post('/cadastro', requireAuth,cadastroController.cadastroPost);
 
 // Rotas Pesquisar Itens
 route.get('/pesquisa', requireAuth, pesquisaController.pesquisarGet);
-route.post('/pesquisa', pesquisaController.pesquisarPost);
+route.post('/pesquisa', requireAuth, pesquisaController.pesquisarPost);
 
 //Update
 route.get('/edit/:id', requireAuth, cadastroController.getEditProductPage);

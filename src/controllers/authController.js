@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 exports.opcoesPost = async (req, res) => {
     res.render('opcoes');
   }
-  exports.opcoesGet = async (req, res) => {
+exports.opcoesGet = async (req, res) => {
     res.render('opcoes');
   }
   
