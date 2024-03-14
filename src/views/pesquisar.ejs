@@ -10,17 +10,14 @@
  
   <ul class="nav nav-pills nav justify-content-center py-3">
     <li class="nav-item">
-      <a class="nav-link " href="http://estoque-farmacia.cyclic.app/cadastro">Cadastro</a>
+      <a class="nav-link " href="https://www.estoque-coper.com/cadastro">Cadastro</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active " href="http://estoque-farmacia.cyclic.app/pesquisa">Pesquisar</a>
+      <a class="nav-link active " href="https://www.estoque-coper.com/pesquisa">Pesquisar</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link " href="http://estoque-farmacia.cyclic.app/pedido">Fazer pedido/faltas</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="http://estoque-farmacia.cyclic.app/pedidos">Pedidos/Faltas</a>
-    </li>
+      <a class="nav-link " href="https://www.estoque-coper.com/opcoes">Menu</a>
+    </li>   
   </ul>
 
 
@@ -61,8 +58,8 @@
             <td><% const data = new Date(pesquisa.vencimento); %> 
               <% const options = { year: 'numeric', month: 'numeric'}; %>
               <%= data.toLocaleDateString('pt-br', options); %>           
-            <td><a href="https://estoque-farmacia.cyclic.app/edit/<%= pesquisa._id %>">Editar</a></td>            
-            <td><a class="text-danger" href="https://estoque-farmacia.cyclic.app/deletar/<%= pesquisa._id %>">Excluir</a></td>            
+            <td><a href="https://www.estoque-coper.com/edit/<%= pesquisa._id %>">Editar</a></td>            
+            <td><a class="text-danger" href="https://www.estoque-coper.com/deletar/<%= pesquisa._id %>">Excluir</a></td>            
           </tr>          
           <% i++}) %>
       </table>

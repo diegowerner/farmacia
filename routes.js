@@ -8,6 +8,7 @@ const authController = require('./src/controllers/authController');
 const cadastroController = require('./src/controllers/cadastroController');
 const pesquisaController = require('./src/controllers/pesquisaController');
 const pedidoController = require('./src/controllers/pedidoController');
+const faltaController = require('./src/controllers/faltaController');
 
 
 //Cookies
@@ -27,15 +28,33 @@ route.get('/read-cookies', (req, res )=> {
 })
 
 
+//Rotas Login
+route.get('/', authController.loginGet);
+route.post('/', authController.loginPost);
 
 //Rota Cadastro Usuario
 route.get('/cadastraruser', authController.cadastrarUsuarioGet);
 route.post('/cadastraruser', authController.cadastrarUsuarioPost);
 
-//Rotas Login
-route.get('/', authController.loginGet);
-route.post('/', authController.loginPost);
 
+//Rotas Falta
+route.get('/falta', requireAuth, faltaController.faltaGet);
+route.post('/falta', requireAuth, faltaController.faltaPost);
+
+route.get('/faltas', requireAuth, faltaController.faltaPesquisaGet);
+route.get('/faltas', requireAuth, faltaController.faltaPesquisaPost);
+
+route.get('/editarFalta/:id', requireAuth, faltaController.getEditarFalta);
+route.post('/editarFalta/:id', requireAuth, faltaController.postEditarFalta);
+
+//Delete
+route.get('/deletarPedido/:id', requireAuth, faltaController.deletarFalta);
+
+
+
+//Rota Opcoes
+route.post('/opcoes', authController.opcoesPost);
+route.get('/opcoes', authController.opcoesGet);
 
 //Rota Cadastro Itens
 route.get('/cadastro', requireAuth, cadastroController.cadastroGet);

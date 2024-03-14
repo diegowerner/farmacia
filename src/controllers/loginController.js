@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const usuarioSchema = require('../models/UsuarioModel');
 const Usuario = require('../models/UsuarioModel');
 const passport = require('passport');
-const { REPLServer } = require('repl');
+
 
 //GET
 exports.loginGet = (req, res) => {
@@ -30,3 +30,4 @@ req.login(user, function(err, user){
   }
 }) 
 }
+

@@ -1,6 +1,16 @@
 const User = require('../models/UsuarioModel');
 const jwt = require('jsonwebtoken');
 
+//Caminhos Opcoes
+
+exports.opcoesPost = async (req, res) => {
+    res.render('opcoes');
+  }
+  exports.opcoesGet = async (req, res) => {
+    res.render('opcoes');
+  }
+  
+
 
 exports.loginPost = async (req, res) => {
     const {login, password} = req.body;
