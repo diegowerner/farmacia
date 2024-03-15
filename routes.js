@@ -48,7 +48,7 @@ route.get('/editarFalta/:id', requireAuth, faltaController.getEditarFalta);
 route.post('/editarFalta/:id', requireAuth, faltaController.postEditarFalta);
 
 //Delete
-route.get('/deletarPedido/:id', requireAuth, faltaController.deletarFalta);
+route.get('/deletarFalta/:id', requireAuth, faltaController.deletarFalta);
 
 
 
