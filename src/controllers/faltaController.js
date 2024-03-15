@@ -48,7 +48,7 @@ exports.getEditarFalta = (req, res) => {
     
     Falta.findOneAndUpdate({_id:req.params.id}, req.body, {new: true})
     .then(docs => {
-        res.render('editFalta', {faltas: docs});        
+        res.render('editarFalta', {faltas: docs});        
     })   
 };
 
