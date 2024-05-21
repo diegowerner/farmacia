@@ -10,13 +10,13 @@
  
   <ul class="nav nav-pills nav justify-content-center py-3">
     <li class="nav-item">
-      <a class="nav-link " href="https://www.estoque-coper.com/cadastro">Cadastro</a>
+      <a class="nav-link " href="https://farmacia2.onrender.com/cadastro">Cadastro</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active " href="https://www.estoque-coper.com/pesquisa">Pesquisar</a>
+      <a class="nav-link active " href="https://farmacia2.onrender.com/pesquisa">Pesquisar</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link " href="https://www.estoque-coper.com/opcoes">Menu</a>
+      <a class="nav-link " href="https://farmacia2.onrender.com/opcoes">Menu</a>
     </li>   
   </ul>
 
@@ -58,8 +58,8 @@
             <td><% const data = new Date(pesquisa.vencimento); %> 
               <% const options = { year: 'numeric', month: 'numeric'}; %>
               <%= data.toLocaleDateString('pt-br', options); %>           
-            <td><a href="https://www.estoque-coper.com/edit/<%= pesquisa._id %>">Editar</a></td>            
-            <td><a class="text-danger" href="https://www.estoque-coper.com/deletar/<%= pesquisa._id %>">Excluir</a></td>            
+            <td><a href="https://farmacia2.onrender.com/edit/<%= pesquisa._id %>">Editar</a></td>            
+            <td><a class="text-danger" href="https://farmacia2.onrender.com/deletar/<%= pesquisa._id %>">Excluir</a></td>            
           </tr>          
           <% i++}) %>
       </table>
